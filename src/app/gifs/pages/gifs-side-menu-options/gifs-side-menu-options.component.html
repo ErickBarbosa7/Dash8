@@ -1,0 +1,10 @@
+<ul class="space-y-2 p-2">
+  <li *ngFor="let option of menuOptions">
+    <app-gifs-side-menu-option
+      [title]="option.title"
+      [subtitle]="option.subtitle"
+      [icon]="option.icon"
+      [router]="option.router"
+    />
+  </li>
+</ul>

@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'Dash8' title`, () => {
+  it(`should have the 'Navbarlateral' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Dash8');
+    expect(app.title).toEqual('Navbarlateral');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, Dash8');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, Navbarlateral');
   });
 });
