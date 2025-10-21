@@ -1,11 +1,21 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GifsSideMenuOptionsComponent } from "./side-menu-options/gifs-side-menu-options.component";
-import { GifsSideMenuHeaderComponent } from "./side-menu-header/gifs-side-menu-header.component";
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { GifsService } from '../../../services/GifsService.service';
 
 @Component({
   selector: 'app-side-menu',
-  imports: [GifsSideMenuOptionsComponent, GifsSideMenuHeaderComponent],
+  standalone: true,
+  imports: [ CommonModule ],
   templateUrl: './side-menu.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SideMenuComponent { }
+export class SideMenuComponent {
+  
+  private gifsService = inject(GifsService);
+  get history(): string[] {
+    return this.gifsService.history();
+  }
+
+  searchTag(tag: string): void {
+    this.gifsService.searchTag(tag);
+  }
+}
