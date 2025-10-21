@@ -28,9 +28,7 @@ export class GifsService {
     effect(() => {
       localStorage.setItem('history', JSON.stringify(this._history()));
     });
-    if (this.history().length === 0) {
-      this.fetchTrendingGifs();
-    }
+    
   }
 
   private loadLocalStorage(): void {
@@ -68,6 +66,9 @@ export class GifsService {
       .subscribe(resp => {
         this._gifList.set(resp.data);
       });
+  }
+  public fetchDashboardGifs(): void {
+    this.searchTag('welcome'); 
   }
   public fetchTrendingGifs(): void {
     const params = new HttpParams()

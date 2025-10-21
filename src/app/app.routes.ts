@@ -7,8 +7,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'trending',
-        pathMatch: 'full',
+        loadComponent: () => import('./gifs/pages/trending-page/trending-page.component'),
       },
       {
         path: 'search', 
