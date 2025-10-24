@@ -1,0 +1,28 @@
+<div id="nav" class="w-full px-6">
+      
+      @for (item of menuItems; track item.label) {
+        <a 
+          [routerLink]="item.routerLink"
+          routerLinkActive="bg-blue-800"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="onMenuClick(item.label)"
+          class="w-full px-2 inline-flex space-x-2 items-center border-b border-slate-700 py-3 hover:bg-white/5 transition ease-linear duration-150 group">
+          
+          <div>
+            <span class="material-symbols-outlined w-6 h-6 text-slate-300 group-[.bg-blue-800]:text-white">
+              {{ item.icon }}
+            </span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-lg font-bold leading-5 text-slate-300 group-[.bg-blue-800]:text-white">
+              {{ item.label }}
+            </span>
+            <span class="text-sm text-slate-500 hidden md:block">
+              {{ item.subtitle }}
+            </span>
+          </div>
+        </a>
+      }
+
+      
+    </div>

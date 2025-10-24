@@ -1,0 +1,12 @@
+@if (history && history.length > 0) {
+      <div class="pt-4 mt-4 border-t border-slate-700">
+        <p class="text-slate-500 mb-2">Historial reciente:</p>
+        @for (tag of history; track tag) {
+          <button 
+            (click)="onTagClick(tag)"
+            class="w-full text-left px-2 py-2 text-sm text-slate-300 rounded-lg hover:bg-white/5 transition ease-linear duration-150">
+            {{ tag | titlecase }}
+          </button>
+        }
+      </div>
+    }

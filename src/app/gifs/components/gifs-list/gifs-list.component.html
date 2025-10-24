@@ -1,5 +1,25 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-  @for (gif of gifs; track gif.id) {
-    <gifs-card [gif]="gif" />
+<div class="container mx-auto px-4 py-6">
+  
+  @if (gifs.length > 0) {
+    <div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-3">
+      
+      @for (gif of gifs; track gif.id) {
+        <div class="break-inside-avoid mb-3">
+          <gifs-card [gif]="gif"></gifs-card>
+        </div>
+      }
+      
+    </div>
+  } @else {
+    <div class="flex items-center justify-center min-h-[400px]">
+      <div class="text-center">
+        <svg class="mx-auto h-12 w-12 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <p class="text-gray-500 text-lg font-medium">No se encontraron GIFs</p>
+        <p class="text-gray-400 text-sm mt-2">Intenta buscar algo diferente</p>
+      </div>
+    </div>
   }
+
 </div>
